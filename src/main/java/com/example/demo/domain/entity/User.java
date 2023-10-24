@@ -38,7 +38,7 @@ public class User {
     private String providerId;
 
     @OneToMany(mappedBy = "follower")
-    private List<Follower> followers;
+    private List<Follow> followers;
 
     @Override
     public String toString() {

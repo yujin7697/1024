@@ -12,20 +12,21 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @Builder
-public class Follower {
+public class Follow {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    private User user;
+    private User follower;
 
     @ManyToOne
-    private User follower;
+    private User following;
+
 
     @Override
     public String toString() {
-        return "Follower{id=" + id + ", user=" + user.getEmail() + ", follower=" + follower.getEmail() + "}";
+        return "Follower{id=" + id + ", user=" + follower.getEmail() + ", follower=" + following.getEmail() + "}";
     }
 }

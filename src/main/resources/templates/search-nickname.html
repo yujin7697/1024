@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/static/css/board.css">
+  <link rel="stylesheet" href="/css/board.css">
 
   <style>
 
@@ -334,38 +334,40 @@ window.addEventListener('scroll', toggleQuickMenu);
 
 <!-- 팔로우 처리 -->
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-     var followButtons = document.querySelectorAll(".follow-btn");
 
-     followButtons.forEach(function(button) {
-         button.addEventListener("click", function() {
-             var userEmail = button.textContent;
+  /*<![CDATA[*/
+          let currentEmail = "[[${#authentication.getPrincipal().getUser().getEmail()}]]";
+   /*]]>*/
 
-             // userEmail을 사용하여 팔로우 처리 로직 수행
-            console.log('팔로우 버튼 클릭 - 이메일: ' + userEmail);
+  document.querySelectorAll('.follow-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+        var userEmail = button.textContent; // 사용자 이메일
 
-             // AJAX 요청 또는 API 호출을 통해 서버에 팔로우 처리 요청
-             // userEmail 파라미터를 서버에 전달하여 해당 사용자를 팔로우하는 동작 수행
-
-             // 예시) jQuery AJAX 사용
-             $.ajax({
-                 url: '/follow/' + userEmail,
-                 type: 'POST',
-                 success: function(response) {
-                     // 성공적으로 처리된 후, UI 업데이트 등의 작업 수행
-                     console.log('팔로우 처리 완료');
-                     // TODO: UI 업데이트 로직 추가 (예시. 버튼 텍스트 변경)
-                     button.textContent = '언팔로우';
-                 },
-                 error: function(error) {
-                     console.error('팔로우 처리 실패', error);
-                     // TODO: 오류 처리 로직 추가 (예시. 에러 메세지 출력)
-                     alert('팔로우 처리 중 오류가 발생했습니다.');
-                 }
-             });
-         });
-     });
- });
+        // 서버로 팔로우 또는 언팔로우 요청 보내기
+        fetch('/follow', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                followerId: 현재 사용자의 ID,
+                followingId: userId
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // 팔로우 또는 언팔로우 성공 시 버튼 텍스트 변경
+            if (data.message === 'Followed successfully') {
+                button.textContent = '언팔로우 ' + userEmail;
+            } else if (data.message === 'Unfollowed successfully') {
+                button.textContent = '팔로우 ' + userEmail;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
 </script>
 
 <script>

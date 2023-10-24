@@ -1,27 +1,32 @@
 package com.example.demo.domain.service;
 
-import com.example.demo.domain.entity.Follower;
+import com.example.demo.domain.entity.Follow;
 import com.example.demo.domain.entity.User;
-import com.example.demo.domain.repository.FollowerRepository;
+import com.example.demo.domain.repository.FollowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FollowService {
     @Autowired
-    private FollowerRepository followerRepository;
+    private FollowRepository followRepository;
 
-    public void follow(User user, User follower) {
-        Follower follow = new Follower();
-        follow.setUser(user);
+    public void follow(User follower, User following) {
+        Follow follow = new Follow();
         follow.setFollower(follower);
-        followerRepository.save(follow);
+        follow.setFollowing(following);
+        followRepository.save(follow);
     }
 
-    public void unfollow(User user, User follower) {
-        Follower follow = followerRepository.findByUserAndFollower(user, follower);
+    public void unfollow(User follower, User following) {
+        Follow follow = followRepository.findByFollowerAndFollowing(follower, following);
         if (follow != null) {
-            followerRepository.delete(follow);
+            followRepository.delete(follow);
         }
     }
+
+    public boolean isFollowing(User follower, User following) {
+        return followRepository.findByFollowerAndFollowing(follower, following) != null;
+    }
+
 }

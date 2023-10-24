@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -36,6 +37,13 @@ public class User {
     private String provider;
     private String providerId;
 
+    @OneToMany(mappedBy = "follower")
+    private List<Follower> followers;
+
+    @Override
+    public String toString() {
+        return "User{email=" + email + ", email='" + email + "'}";
+    }
 
 
 

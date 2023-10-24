@@ -45,7 +45,7 @@ public interface BoardRepository extends JpaRepository<Board, String> {
     void deleteByNickname(@Param("nickname") String nickname);
 
     //조인하여 프로필과 Board 함께 조회
-    @Query("SELECT b,u.profile FROM Board b INNER JOIN User u ON b.email = u.email")
+    @Query("SELECT b,u.profile FROM Board b INNER JOIN User u ON b.email = u.email ORDER BY date desc")
     List<Object[]> findJoin();
 
 

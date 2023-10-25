@@ -114,7 +114,8 @@
 <br/>
 
 ## ▶️ DB Query
-![image](https://github.com/yujin7697/1024/assets/122248974/15fd4c08-ea23-4522-8459-c3fa22e7062c)
+![image](https://github.com/yujin7697/1024/assets/122248974/4f65a58b-9d5c-4335-8b19-9c561b123515)
+
 
 
 <br/>

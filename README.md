@@ -39,15 +39,16 @@
 
 ## ▶️ IDE 종류
 
-##### IntelliJ IDEA 2023-06
+##### IntelliJ IDEA 2023.2 (Community Edition)
 <br/>
 
 ## ▶️ Software 목록
 
-##### IDE : IntelliJ IDEA 버전명
+##### IDE : IntelliJ IDEA 2023.2 (Community Edition)
 ##### JDK : 11.0.2
 ##### SpringBoot 2.7.15
-##### maven version 3.1.2
+##### spring.dependency-management version 1.0.15.RELEASE
+##### gradle version 8.2.1
 ##### Git 3.1.1
 ##### Mysql Server 8.0.33
 ##### Mysql Workbench 8.0.33
@@ -58,28 +59,38 @@
 
 ###     WEB
 ##### 	implementation 'org.springframework.boot:spring-boot-starter-web'
+#####   - 웹 애플리케이션 개발, RESTful, Spring MVC, Spring Security
 ###     THYMELEAF
 ##### 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+#####   - thyeleaf 템플릿 사용
 ###     LOMBOK
 #####   compileOnly 'org.projectlombok:lombok'
 #####   annotationProcessor 'org.projectlombok:lombok'
+#####   - 애노테이션을 사용하여 getter,setter 등 매서드 생성
 ###     SECURITY
 #####   implementation 'org.springframework.boot:spring-boot-starter-security'
 #####   implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+#####   - Spring Boot 애플리케이션 통합
 ###     OAUTH2
 ##### 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+##### 	- naver, kakao login(API 서비스 사용)
 ###     FILE UPLOAD
 ##### 	implementation 'commons-fileupload:commons-fileupload:1.5'
+##### 	- 파일 업로드, 멀티파트 데이터 추출 
 ###     DATABASE
 #####   implementation 'com.mysql:mysql-connector-j:8.1.0'
 #####  	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+#####   - MYSQL 데이터베이스 연동, Spring Boot JDBC 지원
 ###     ORM_JPA
 #####   implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+#####   - 객체-관계 매핑 
 ###     02CONTROLLER_VALIDATION
 #####   implementation 'org.hibernate.validator:hibernate-validator'
 #####   implementation 'javax.validation:validation-api'
+#####   - Java Bean Validation API 제공, Dto와 Entity 간 데이터 일치성 보장
 ###     websocket
 #####   implementation 'org.springframework.boot:spring-boot-starter-websocket'
+#####   - 실시간 양방향 통신, 실시간 알림 기능
 
 <br/>
 

@@ -15,7 +15,7 @@
 ## ▶️ 개발 일정
 #### 2023-09-11 ~ 2023-09-13(03Day) : 요구사항분석 / 유스케이스 / 
 #### 2023-09-14 ~ 2023-09-18(05Day) : 스타일가이드 / 스토리보드 / ERD / ClassDiagram / Sequence Diagram
-#### 2023-09-19 (01Day) : 개발환경 구축(Github / Git / STS / Mysql / AWS ...)
+#### 2023-09-19 (01Day) : 개발환경 구축(Github / Git / IntelliJ / Mysql / AWS ...)
 #### 2023-09-20 ~       : 개발중...
 
 <br/>
@@ -54,6 +54,14 @@
 ##### Mysql Workbench 8.0.33
 ##### Visual Studio Code 1.82.2
 <br/>
+
+## ▶️ DB Query
+![image](https://github.com/yujin7697/1024/assets/122248974/15fd4c08-ea23-4522-8459-c3fa22e7062c)
+
+
+<br/>
+
+
 
 ## ▶️ 사용빌드도구(gradle) 
 
